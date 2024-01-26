@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: FMOD/jesteringFMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638419009798720502
+  lastModified: 638419016860288104
   FileSizes:
   - Name: Desktop
     Value: 760
@@ -35,7 +35,7 @@ MonoBehaviour:
   Path: FMOD/jesteringFMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638419009798713768
+  lastModified: 638419016860278141
   FileSizes:
   - Name: Desktop
     Value: 30816
@@ -62,7 +62,7 @@ MonoBehaviour:
   - {fileID: -3468039801729184792}
   StringsBanks:
   - {fileID: -7097290151368527098}
-  cacheTime: 638419009798720502
+  cacheTime: 638419016860288104
   cacheVersion: 131616
 --- !u!114 &6652260715962823627
 MonoBehaviour:
