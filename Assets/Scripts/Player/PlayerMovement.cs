@@ -5,7 +5,7 @@ using Jestering.Input;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Jestering.Player
+namespace Jestering.Movement
 {
     public class PlayerMovement : MonoBehaviour
     {
