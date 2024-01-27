@@ -9,6 +9,8 @@ namespace Jestering.Movement
 {
     public class PlayerMovement : MonoBehaviour
     {
+        private const float GRAVITY = -9.81f;
+        
         private CharacterController _controller;
 
         [Header("Variables")]
@@ -40,7 +42,7 @@ namespace Jestering.Movement
         private void ApplyMovement()
         {
             var movement = _movementInputAxis * (_movementSpeed * Time.deltaTime);
-            var fixedMovementAxis = new Vector3(movement.x, 0, movement.y);
+            var fixedMovementAxis = new Vector3(movement.x, _controller.isGrounded ? 0 : GRAVITY, movement.y);
             _controller.Move(fixedMovementAxis);
         }
     }

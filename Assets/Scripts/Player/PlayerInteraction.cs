@@ -10,6 +10,9 @@ namespace Jestering.Interaction
     {
         [SerializeField]
         private float _frameBudget;
+
+        [SerializeField]
+        private bool _interactionSymbolOnInteractable = false;
         
         [SerializeField]
         private GameObject _interactionSymbol;
@@ -17,6 +20,11 @@ namespace Jestering.Interaction
         private List<Interactable> _interactables = new();
 
         private Interactable _bestInteractable;
+
+        private void Start()
+        {
+            SetBestInteractable(null);
+        }
 
         private void Update()
         {
@@ -68,13 +76,20 @@ namespace Jestering.Interaction
             _bestInteractable = interactable;
             if (!_bestInteractable)
             {
-                _interactionSymbol.transform.SetParent(null);
+                if(_interactionSymbolOnInteractable)
+                    _interactionSymbol.transform.SetParent(null);
+                
                 _interactionSymbol.SetActive(false);
                 return;
             }
             
             _interactionSymbol.SetActive(true);
+            
+            if(!_interactionSymbolOnInteractable)
+                return;
+            
             _interactionSymbol.transform.SetParent(interactable.InteractionPoint, false);
+            _interactionSymbol.transform.position = interactable.InteractionPoint.position;
         }
         
         private void OnTriggerEnter(Collider other)
@@ -111,15 +126,5 @@ namespace Jestering.Interaction
         public Transform InteractionPoint => _interactionPoint;
 
         public abstract void Interact();
-    }
-
-    public class Grabbable : Interactable
-    {
-        
-        
-        public override void Interact()
-        {
-            
-        }
     }
 }
