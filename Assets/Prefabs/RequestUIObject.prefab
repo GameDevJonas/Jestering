@@ -136,7 +136,7 @@ MonoBehaviour:
     LoveOverlay: {fileID: 21300000, guid: d9a629f5bad26154f94a177885ebb732, type: 3}
     LikeOverlay: {fileID: 21300000, guid: 4305ac119dfb650479b156fc09b10349, type: 3}
     DislikeOverlay: {fileID: 21300000, guid: ce1b6508080c0b44d90f99270a0d0667, type: 3}
-    HateOverlay: {fileID: 21300000, guid: 4a41513ef6cac444cb5d82105f779832, type: 3}
+    HateOverlay: {fileID: 21300000, guid: daa5b8b983b2d744398146baf07a6cc9, type: 3}
   _categoryImage: {fileID: 2119960490862724347}
   _overlayImage: {fileID: 4544804803868202136}
 --- !u!1 &6675432168139446946

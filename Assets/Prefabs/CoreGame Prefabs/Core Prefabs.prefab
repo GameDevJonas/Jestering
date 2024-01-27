@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 387697582015495686}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.19750682, y: -0, z: -0, w: 0.98030156}
-  m_LocalPosition: {x: -2583.0398, y: -797.7052, z: -21.95851}
+  m_LocalRotation: {x: -0.18078679, y: 0.007378004, z: 0.0013556808, w: 0.98349375}
+  m_LocalPosition: {x: -2560.46, y: -801.16, z: -15.54}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -207,7 +207,7 @@ GameObject:
   - component: {fileID: 637614475624711245}
   - component: {fileID: 2953255318140460244}
   m_Layer: 0
-  m_Name: Virtual Camera
+  m_Name: Player Virtual Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

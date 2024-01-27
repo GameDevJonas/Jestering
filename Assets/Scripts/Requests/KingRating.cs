@@ -18,6 +18,8 @@ namespace Jestering.Rating
 
         public KingRequest CurrentRequest => _currentRequest;
 
+        private int _points;
+        
         public void NewRequest(int complexity)
         {
             ResetRequest();
@@ -44,18 +46,18 @@ namespace Jestering.Rating
             _currentRequest = null;
         }
         
-        public void RateObject(JesterObject jesterObject)
+        public bool RateObject(JesterObject jesterObject)
         {
             if (!jesterObject || _currentRequest.points != 0)
             {
                 _currentRequest.points = 0;
-                return;
+                return false;
             }
 
             List<JesterObject.ItemCategory> attachedCategories = new List<JesterObject.ItemCategory>();
             
             CheckAttachedJesterObject(jesterObject, attachedCategories);
-
+            
             foreach (var attachedCategory in attachedCategories)
             {
                 bool success = false;
@@ -72,8 +74,13 @@ namespace Jestering.Rating
                 
                 Debug.Log($"Category: {attachedCategory}. Points are now {_currentRequest.points}");
             }
-            
-            //Gather all categories from object
+
+            var currentRequestPoints = _currentRequest.points;
+
+            _points += currentRequestPoints;
+            _requestCollectionUI.SetPointsText(_points);
+
+            return currentRequestPoints > 2;
         }
 
         private static void CheckAttachedJesterObject(JesterObject jesterObject, List<JesterObject.ItemCategory> attachedCategories)

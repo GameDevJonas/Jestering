@@ -95,7 +95,14 @@ namespace Jestering.Interaction
                 SetBestInteractable(null);
                 return;
             }
-            
+
+            for (var index = 0; index < _interactables.Count; index++)
+            {
+                var interactable = _interactables[index];
+                if (interactable == null)
+                    _interactables.Remove(interactable);
+            }
+
             _interactables = _interactables.OrderBy(x => Vector3.Distance(transform.position, x.transform.position)).ToList();
             if (_interactables.All(x => !x.CanInteract()))
             {

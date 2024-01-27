@@ -26,6 +26,8 @@ namespace Jestering.Interaction
         
         private JesterObject _currentJester;
 
+        public JesterObject CurrentJester => _currentJester;
+
         private void Awake()
         {
             _playerObject = GameObject.FindWithTag("Player").transform;
@@ -65,6 +67,12 @@ namespace Jestering.Interaction
             
             var success = _currentJester.AttachToMe(jesterObject);
             return success;
+        }
+
+        public void ResetPlatform()
+        {
+            Destroy(_currentJester.gameObject);
+            _currentJester = null;
         }
     }
 }
