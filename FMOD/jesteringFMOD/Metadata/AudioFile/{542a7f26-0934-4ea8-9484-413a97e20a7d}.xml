@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{542a7f26-0934-4ea8-9484-413a97e20a7d}">
+		<property name="assetPath">
+			<value>pickup_girlypop_pling.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.72627083333333331</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{2118ff30-ac44-4bd7-a1e0-6d73e1eb1deb}</destination>
+		</relationship>
+	</object>
+</objects>
