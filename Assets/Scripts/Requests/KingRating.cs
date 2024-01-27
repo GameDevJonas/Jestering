@@ -80,7 +80,7 @@ namespace Jestering.Rating
             _points += currentRequestPoints;
             _requestCollectionUI.SetPointsText(_points);
 
-            return currentRequestPoints > 2;
+            return currentRequestPoints >= 2;
         }
 
         private static void CheckAttachedJesterObject(JesterObject jesterObject, List<JesterObject.ItemCategory> attachedCategories)
