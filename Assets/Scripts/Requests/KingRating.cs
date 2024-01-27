@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using FMODUnity;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -14,6 +15,8 @@ namespace Jestering.Rating
 
         [SerializeField]
         private KingRequest _currentRequest;
+
+        public KingRequest CurrentRequest => _currentRequest;
 
         public void NewRequest(int complexity)
         {
@@ -33,20 +36,6 @@ namespace Jestering.Rating
 
                 _requestCollectionUI.InstantiateRequest(category, point);
             }
-
-            Request GetRequestFromIndex(int index)
-            {
-                if (index <= 0)
-                    return _currentRequest.LoveRequest;
-                else if (index <= 1)
-                    return _currentRequest.LikeRequest;
-                else if (index <= 2)
-                    return _currentRequest.DislikeRequest;
-                else if (index <= 3)
-                    return _currentRequest.HateRequest;
-
-                return new Request(JesterObject.ItemCategory.None, 0);
-            }
         }
 
         public void ResetRequest()
@@ -54,12 +43,73 @@ namespace Jestering.Rating
             _requestCollectionUI.RemoveRequestUI();
             _currentRequest = null;
         }
-
+        
         public void RateObject(JesterObject jesterObject)
         {
+            if (!jesterObject || _currentRequest.points != 0)
+            {
+                _currentRequest.points = 0;
+                return;
+            }
+
+            List<JesterObject.ItemCategory> attachedCategories = new List<JesterObject.ItemCategory>();
             
+            CheckAttachedJesterObject(jesterObject, attachedCategories);
+
+            foreach (var attachedCategory in attachedCategories)
+            {
+                bool success = false;
+                
+                for (int i = 0; i < 5; i++)
+                {
+                    var request = GetRequestFromIndex(i);
+                    if (attachedCategory == request.category)
+                    {
+                        _currentRequest.points += request.points;
+                        success = true;
+                    }
+                }
+                
+                Debug.Log($"Category: {attachedCategory}. Points are now {_currentRequest.points}");
+            }
+            
+            //Gather all categories from object
+        }
+
+        private static void CheckAttachedJesterObject(JesterObject jesterObject, List<JesterObject.ItemCategory> attachedCategories)
+        {
+            attachedCategories.Add(jesterObject.Category);
+
+            var attachedHeadObject = jesterObject.Slots.HeadSlot.attachedJesterObject;
+            if (attachedHeadObject)
+                attachedCategories.Add(attachedHeadObject.Category);
+
+            var attachedFaceObject = jesterObject.Slots.FaceSlot.attachedJesterObject;
+            if (attachedFaceObject)
+                attachedCategories.Add(attachedFaceObject.Category);
+
+            var attachedLeftArmObject = jesterObject.Slots.LeftArmSlot.attachedJesterObject;
+            if (attachedLeftArmObject)
+                attachedCategories.Add(attachedLeftArmObject.Category);
+
+            var attachedRightArmObject = jesterObject.Slots.RightArmSlot.attachedJesterObject;
+            if (attachedRightArmObject)
+                attachedCategories.Add(attachedRightArmObject.Category);
         }
         
+        public Request GetRequestFromIndex(int index)
+        {
+            if (index <= 0)
+                return _currentRequest.LoveRequest;
+            else if (index <= 1)
+                return _currentRequest.LikeRequest;
+            else if (index <= 2)
+                return _currentRequest.DislikeRequest;
+            else if (index <= 3)
+                return _currentRequest.HateRequest;
+
+            return new Request(JesterObject.ItemCategory.None, 0);
+        }
     }
 
     //LOVE request
@@ -75,6 +125,8 @@ namespace Jestering.Rating
         public Request DislikeRequest;
         public Request HateRequest;
 
+        public int points = 0;
+        
         public KingRequest(int complexity)
         {
             var loveCategory = GetRandomCategory(null);

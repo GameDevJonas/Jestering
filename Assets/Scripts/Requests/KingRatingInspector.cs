@@ -9,6 +9,8 @@ namespace Jestering.Rating
     {
         [Min(1)]
         private int _complexityInput = 1;
+
+        private JesterObject _jesterObjectToRate;
         
         public override void OnInspectorGUI()
         {
@@ -35,6 +37,25 @@ namespace Jestering.Rating
             {
                 kingRating.ResetRequest();
             }
+            
+            if(kingRating.CurrentRequest.LoveRequest.category == JesterObject.ItemCategory.None)
+                return;
+            
+            GUILayout.Space(10);
+            
+            EditorGUILayout.BeginHorizontal();
+
+            _jesterObjectToRate = EditorGUILayout.ObjectField(_jesterObjectToRate, typeof(JesterObject)) as JesterObject;
+            
+            if (GUILayout.Button("Rate Jester Object"))
+            {
+                if(!_jesterObjectToRate)
+                    return;
+                
+                kingRating.RateObject(_jesterObjectToRate);
+            }
+            
+            EditorGUILayout.EndHorizontal();
         }
     }
 }
