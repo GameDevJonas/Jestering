@@ -287,6 +287,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5457288931144228898}
   - component: {fileID: 3846574215175282450}
+  - component: {fileID: 6685946424863731810}
   m_Layer: 0
   m_Name: Base Jester Object
   m_TagString: Untagged
@@ -332,6 +333,21 @@ MonoBehaviour:
     FaceSlot: {fileID: 7818631870236065147}
     LeftArmSlot: {fileID: 4473810530496282128}
     RightArmSlot: {fileID: 3990982189347955805}
+--- !u!114 &6685946424863731810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8459493774623211945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39faf8d07171e134a9d8dd47fa6a913b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotationPivot: {fileID: 0}
+  _rotationSpeed: 0
+  _onlyY: 0
 --- !u!1001 &2725882877092561629
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -346,7 +362,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4690344451125188166, guid: 17eeb55074616424a869b13987cefdee, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.633
       objectReference: {fileID: 0}
     - target: {fileID: 4690344451125188166, guid: 17eeb55074616424a869b13987cefdee, type: 3}
       propertyPath: m_LocalPosition.z
