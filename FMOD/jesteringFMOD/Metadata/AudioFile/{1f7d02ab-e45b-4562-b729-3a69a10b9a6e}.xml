@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{1f7d02ab-e45b-4562-b729-3a69a10b9a6e}">
+		<property name="assetPath">
+			<value>funny_castle_exit_01.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>5.5461904761904766</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{2118ff30-ac44-4bd7-a1e0-6d73e1eb1deb}</destination>
+		</relationship>
+	</object>
+</objects>

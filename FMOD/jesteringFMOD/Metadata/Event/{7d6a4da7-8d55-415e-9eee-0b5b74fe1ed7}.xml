@@ -216,6 +216,12 @@
 		<property name="length">
 			<value>8</value>
 		</property>
+		<property name="looping">
+			<value>true</value>
+		</property>
+		<relationship name="audioFile">
+			<destination>{6b20586c-77a2-46be-a589-23ce176c4fdd}</destination>
+		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{f33cf051-1275-48c6-ab0b-31b3d6df9863}">
 		<property name="name">
