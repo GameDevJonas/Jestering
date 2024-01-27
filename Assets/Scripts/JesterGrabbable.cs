@@ -12,13 +12,25 @@ namespace Jestering.Interaction
         private void Awake()
         {
             _platform = FindObjectOfType<JesterPlatform>();
-            _jesterObject = GetComponentInChildren<JesterObject>();
+            _jesterObject = GetComponentInParent<JesterObject>();
+        }
+
+        public override bool CanInteract()
+        {
+            if (_jesterObject.IsShowcasing || _jesterObject.IsAttached)
+                return false;
+            
+            return base.CanInteract();
         }
 
         protected override void OnInteract()
         {
             var successAdd = _platform.AddToPlatform(_jesterObject);
-            Debug.Log($"{_jesterObject.name} was added to platform with result {successAdd}", this);
+            if (successAdd)
+            {
+                _jesterObject.SetCollisionEnabled(false);
+                _jesterObject.SetIsShowcasing(true);
+            }
         }
     }
 }
