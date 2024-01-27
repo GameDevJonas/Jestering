@@ -26,7 +26,10 @@ namespace Jestering
         
         private AttachmentSlot _attachedSlot;
         public bool IsAttached => _attachedSlot != null;
-        
+
+        private bool _isShowcasing;
+        public bool IsShowcasing => _isShowcasing;
+
         [Serializable]
         public struct AttachmentSlots
         {
@@ -42,11 +45,16 @@ namespace Jestering
         [FormerlySerializedAs("_slots")] [SerializeField]
         public AttachmentSlots Slots;
 
+        public void SetIsShowcasing(bool value)
+        {
+            _isShowcasing = value;
+        }
+        
         public void SetAttachedSlot(AttachmentSlot slot)
         {
             _attachedSlot = slot;
         }
-        
+
         public bool AttachToMe(JesterObject jesterObject)
         {
             AttachmentSlot slot = FindAvailableSlot();
