@@ -13,7 +13,7 @@ namespace Jestering
             Girlypop,
             Obscure,
             Koselig,
-            Cute,
+            Cool,
             Provocative,
             ComedyGold
         }
