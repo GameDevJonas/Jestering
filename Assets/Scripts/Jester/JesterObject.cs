@@ -89,5 +89,13 @@ namespace Jestering
 
             return null;
         }
+
+        public void SetCollisionEnabled(bool enabled)
+        {
+            foreach (var jesterCollider in GetComponentsInChildren<Collider>())
+            {
+                jesterCollider.enabled = enabled;
+            }
+        }
     }
 }

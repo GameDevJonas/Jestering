@@ -21,6 +21,8 @@ namespace Jestering.Interaction
         private void Awake()
         {
             _mainCamera = Camera.main.transform;
+            if (!_rotationPivot)
+                _rotationPivot = transform;
         }
 
         private void Update()

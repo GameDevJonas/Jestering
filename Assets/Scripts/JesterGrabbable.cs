@@ -27,7 +27,10 @@ namespace Jestering.Interaction
         {
             var successAdd = _platform.AddToPlatform(_jesterObject);
             if (successAdd)
+            {
+                _jesterObject.SetCollisionEnabled(false);
                 _jesterObject.SetIsShowcasing(true);
+            }
         }
     }
 }
