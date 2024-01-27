@@ -8,6 +8,22 @@ namespace Jestering
 {
     public class JesterObject : MonoBehaviour
     {
+        public enum ItemCategory
+        {
+            Girlypop,
+            Obscure,
+            Koselig,
+            Cute,
+            Provocative,
+            ComedyGold
+        }
+
+        [SerializeField]
+        private ItemCategory _category;
+
+        public ItemCategory Category => _category;
+
+        
         private AttachmentSlot _attachedSlot;
         public bool IsAttached => _attachedSlot != null;
         
