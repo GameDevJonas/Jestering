@@ -10,6 +10,7 @@ namespace Jestering
     {
         public enum ItemCategory
         {
+            None,
             Girlypop,
             Obscure,
             Koselig,
