@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{d5582b29-1a56-425b-81a6-59984108f33f}">
+		<property name="assetPath">
+			<value>funny_nigh_laugh_03.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.40766439909297053</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{2118ff30-ac44-4bd7-a1e0-6d73e1eb1deb}</destination>
+		</relationship>
+	</object>
+</objects>
