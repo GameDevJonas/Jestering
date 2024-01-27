@@ -24,9 +24,14 @@ namespace Jestering.Movement
             _controller = GetComponentInParent<CharacterController>();
         }
 
-        private void Start()
+        private void OnEnable()
         {
             InputManager.RegisterInput(InputManager.Movement, OnMovementInput);
+        }
+
+        private void OnDisable()
+        {
+            InputManager.UnregisterInput(InputManager.Movement, OnMovementInput);
         }
 
         private void OnMovementInput(InputAction.CallbackContext callbackContext)

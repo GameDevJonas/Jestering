@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Jestering.Input;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Jestering.Interaction
 {
@@ -26,6 +28,16 @@ namespace Jestering.Interaction
             SetBestInteractable(null);
         }
 
+        private void OnEnable()
+        {
+            InputManager.RegisterInput(InputManager.Interact, OnInteractInput);
+        }
+
+        private void OnDisable()
+        {
+            InputManager.UnregisterInput(InputManager.Interact, OnInteractInput);
+        }
+
         private void Update()
         {
             var frameCount = Time.frameCount;
@@ -35,6 +47,23 @@ namespace Jestering.Interaction
             UpdateInteractableList();
         }
 
+        private void OnInteractInput(InputAction.CallbackContext context)
+        {
+            if(!context.performed)
+                return;
+
+            if(!_bestInteractable)
+                return;
+
+            if(!_bestInteractable.CanInteract())
+                return;
+            
+            _bestInteractable.Interact();
+            UpdateInteractableList();
+        }
+        
+        #region Interctables management
+        
         public void AddInteractable(Interactable interactable)
         {
             if (_interactables.Contains(interactable))
@@ -68,7 +97,13 @@ namespace Jestering.Interaction
             }
             
             _interactables = _interactables.OrderBy(x => Vector3.Distance(transform.position, x.transform.position)).ToList();
-            SetBestInteractable(_interactables[0]);    
+            if (_interactables.All(x => !x.CanInteract()))
+            {
+                SetBestInteractable(null);
+            }
+
+            var firstInteractable = _interactables.FirstOrDefault(x => x.CanInteract());
+            SetBestInteractable(firstInteractable ? firstInteractable : null);    
         }
 
         private void SetBestInteractable(Interactable interactable)
@@ -117,6 +152,8 @@ namespace Jestering.Interaction
             
             RemoveInteractable(interactable);
         }
+        #endregion
+
     }
 
     public abstract class Interactable : MonoBehaviour
@@ -125,6 +162,25 @@ namespace Jestering.Interaction
         private Transform _interactionPoint;
         public Transform InteractionPoint => _interactionPoint;
 
-        public abstract void Interact();
+        [SerializeField]
+        private float _interactionDelay = .4f;
+
+        private float _lastInteractedTime;
+        
+        public virtual bool CanInteract()
+        {
+            if (Time.time <= _lastInteractedTime + _interactionDelay)
+                return false;
+
+            return true;
+        }
+
+        public void Interact()
+        {
+            _lastInteractedTime = Time.time;
+            OnInteract();
+        }
+        
+        protected abstract void OnInteract();
     }
 }

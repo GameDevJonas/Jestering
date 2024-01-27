@@ -47,13 +47,14 @@ namespace Jestering
             _attachedSlot = slot;
         }
         
-        public void AttachToMe(JesterObject jesterObject)
+        public bool AttachToMe(JesterObject jesterObject)
         {
             AttachmentSlot slot = FindAvailableSlot();
             if(!slot)
-                return;
+                return false;
             
             slot.Attach(jesterObject);
+            return true;
         }
 
         public void ResetAttachments()
