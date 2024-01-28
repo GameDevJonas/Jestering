@@ -152,6 +152,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.355
       objectReference: {fileID: 0}
+    - target: {fileID: 5724101200822802868, guid: e36df9730468a0f44ac05551c5c881c9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7083787349296651783, guid: e36df9730468a0f44ac05551c5c881c9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.438
@@ -162,7 +166,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8459493774623211945, guid: e36df9730468a0f44ac05551c5c881c9, type: 3}
       propertyPath: m_Name
-      value: Base Jester Object Variant
+      value: Elephant Jester Object Variant
       objectReference: {fileID: 0}
     - target: {fileID: 9076647488612037923, guid: e36df9730468a0f44ac05551c5c881c9, type: 3}
       propertyPath: m_LocalPosition.y
