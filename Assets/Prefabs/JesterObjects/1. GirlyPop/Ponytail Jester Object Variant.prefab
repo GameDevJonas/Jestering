@@ -26,11 +26,11 @@ Transform:
   m_GameObject: {fileID: 8582082267633227791}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.592, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5092055124860621230}
+  m_Father: {fileID: 8782705803677530707}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1517627293161322037
 SpriteRenderer:
@@ -98,7 +98,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3022508702932017654, guid: e36df9730468a0f44ac05551c5c881c9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.502
+      value: 0.094
       objectReference: {fileID: 0}
     - target: {fileID: 3846574215175282450, guid: e36df9730468a0f44ac05551c5c881c9, type: 3}
       propertyPath: _category
@@ -106,7 +106,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4344906853041714363, guid: e36df9730468a0f44ac05551c5c881c9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.169
+      value: 0.47100008
       objectReference: {fileID: 0}
     - target: {fileID: 4809377665970265822, guid: e36df9730468a0f44ac05551c5c881c9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -154,7 +154,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5724101200822802868, guid: e36df9730468a0f44ac05551c5c881c9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.796
+      value: 0.09800005
+      objectReference: {fileID: 0}
+    - target: {fileID: 5724101200822802868, guid: e36df9730468a0f44ac05551c5c881c9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7083787349296651783, guid: e36df9730468a0f44ac05551c5c881c9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -162,22 +166,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7083787349296651783, guid: e36df9730468a0f44ac05551c5c881c9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.424
+      value: 0.077
       objectReference: {fileID: 0}
     - target: {fileID: 8459493774623211945, guid: e36df9730468a0f44ac05551c5c881c9, type: 3}
       propertyPath: m_Name
       value: Ponytail Jester Object Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 9076647488612037923, guid: e36df9730468a0f44ac05551c5c881c9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.698
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 4809377665970265822, guid: e36df9730468a0f44ac05551c5c881c9, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 9076647488612037923, guid: e36df9730468a0f44ac05551c5c881c9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7589623766672388404}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e36df9730468a0f44ac05551c5c881c9, type: 3}
---- !u!4 &5092055124860621230 stripped
+--- !u!4 &8782705803677530707 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 4809377665970265822, guid: e36df9730468a0f44ac05551c5c881c9, type: 3}
+  m_CorrespondingSourceObject: {fileID: 9076647488612037923, guid: e36df9730468a0f44ac05551c5c881c9, type: 3}
   m_PrefabInstance: {fileID: 294082705918562160}
   m_PrefabAsset: {fileID: 0}

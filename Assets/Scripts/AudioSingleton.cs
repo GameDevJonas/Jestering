@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 
 namespace Jestering
@@ -10,6 +11,9 @@ namespace Jestering
     {
         private AudioSingleton _instance;
 
+        [SerializeField]
+        private StudioEventEmitter _musEmitter, _ambxEmitter;
+        
         private void Awake()
         {
             if (_instance)
@@ -20,6 +24,8 @@ namespace Jestering
 
             _instance = this;
             DontDestroyOnLoad(this);
+            _musEmitter.Play();
+            _ambxEmitter.Play();
         }
     }
 }

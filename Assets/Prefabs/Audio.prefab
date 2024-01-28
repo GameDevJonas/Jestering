@@ -172,3 +172,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f5d3490650b57a4e8784df15be71092, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _musEmitter: {fileID: 2697387940948202047}
+  _ambxEmitter: {fileID: 4527996613631293299}
