@@ -553,10 +553,10 @@
 	</object>
 	<object class="TransitionRegion" id="{1b686fd2-b60e-4d3c-a021-65e76186007b}">
 		<property name="position">
-			<value>10.666666666666664</value>
+			<value>0.16666666666666666</value>
 		</property>
 		<property name="length">
-			<value>42.666666666666664</value>
+			<value>53.16666666666665</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{96cd2994-dad4-4ce2-96c0-6dfd7fa2e174}</destination>
