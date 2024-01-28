@@ -83,6 +83,8 @@ namespace Jestering.Rating
             _requestCollectionUI.RemoveRequestUI();
             _currentRequest = null;
         }
+
+        public Action<int> OnCategoryMatch;
         
         public bool RateObject(JesterObject jesterObject, out int points)
         {
@@ -108,6 +110,7 @@ namespace Jestering.Rating
                     if (attachedCategory == request.category)
                     {
                         _currentRequest.points += request.points;
+                        OnCategoryMatch?.Invoke(request.points);
                         success = true;
                     }
                 }
