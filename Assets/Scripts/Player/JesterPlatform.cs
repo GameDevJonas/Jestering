@@ -1,12 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 
 namespace Jestering.Interaction
 {
     public class JesterPlatform : MonoBehaviour
     {
+        [SerializeField]
+        private StudioEventEmitter _platformAudio;
+        
         [Header("Rope")]
         [SerializeField]
         private LineRenderer _rope;
@@ -23,6 +27,8 @@ namespace Jestering.Interaction
         private float _rotationSpeed;
 
         private Transform _playerObject;
+
+        private Rigidbody _rb;
         
         private JesterObject _currentJester;
 
@@ -31,14 +37,31 @@ namespace Jestering.Interaction
         private void Awake()
         {
             _playerObject = GameObject.FindWithTag("Player").transform;
+            _rb = GetComponent<Rigidbody>();
         }
 
         private void Update()
         {
+            PlatformAudio();
             RotateToPlayer();
             SetRopePositions();
         }
 
+        private void PlatformAudio()
+        {
+            var isMoving = _rb.velocity.magnitude >= 1f;
+            if (isMoving)
+            {
+                if(!_platformAudio.IsPlaying())
+                    _platformAudio.Play();
+            }
+            else
+            {
+                if(_platformAudio.IsPlaying())
+                    _platformAudio.Stop();
+            }
+        }
+        
         private void SetRopePositions()
         {
             _rope.SetPosition(0, _startPoint.position);
