@@ -117,14 +117,15 @@ namespace Jestering.Rating
 
             var currentRequestPoints = _currentRequest.points;
 
-            _points += currentRequestPoints;
+            // _points += currentRequestPoints;
             points = currentRequestPoints;
             return currentRequestPoints >= 2;
         }
 
-        public void UpdatePointsText()
+        public void UpdatePointsText(int pointsToAdd)
         {
-            _requestCollectionUI.SetPointsText(_points);
+            RuntimeManager.PlayOneShot("event:/funny_points");
+            _requestCollectionUI.SetPointsText(_points += pointsToAdd);
         }
         
         private static void CheckAttachedJesterObject(JesterObject jesterObject, List<JesterObject.ItemCategory> attachedCategories)

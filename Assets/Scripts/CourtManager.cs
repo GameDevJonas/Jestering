@@ -124,6 +124,16 @@ namespace Jestering.Rating
             if (success)
                 _complexity++;
 
+            var laughs = points / 2;
+            if (laughs < 0)
+                laughs = 0;
+
+            var pointIncrement = 0;
+            if (laughs > 0)
+            {
+                pointIncrement = points / laughs;
+            }
+            
             var hasFirstLaugh = false;
             for (int i = 1; i <= 5; i++)
             {
@@ -140,8 +150,12 @@ namespace Jestering.Rating
                         hasFirstLaugh = true;
                     }
                     _rating.SetKingFace(_rating.Faces.laughFace);
+
+
                     yield return new WaitForSeconds(1f);
                 }
+                _rating.UpdatePointsText(pointIncrement);
+
 
             }
 
