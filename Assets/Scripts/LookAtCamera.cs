@@ -15,9 +15,12 @@ namespace Jestering.Interaction
         
         [SerializeField]
         private bool _onlyY;
+
+        [SerializeField]
+        private bool _offsetFromParent;
         
         private Transform _mainCamera;
-
+        
         private void Awake()
         {
             _mainCamera = Camera.main.transform;
@@ -27,16 +30,34 @@ namespace Jestering.Interaction
 
         private void Update()
         {
-            var targetRotation = Quaternion.LookRotation(_rotationPivot.position - _mainCamera.position);
-            var targetRotEuler = Quaternion.Lerp(transform.rotation, targetRotation, _rotationSpeed > 0 ? _rotationSpeed * Time.deltaTime : 1)
-                .eulerAngles;
-            if (_onlyY)
+            if (_offsetFromParent)
             {
-                targetRotEuler.x = transform.rotation.eulerAngles.x;
-                targetRotEuler.z = transform.rotation.eulerAngles.z;
+                var targetRotation = Quaternion.LookRotation(_rotationPivot.position - _mainCamera.position);
+                var targetRotEuler = Quaternion.Lerp(transform.localRotation, targetRotation,
+                        _rotationSpeed > 0 ? _rotationSpeed * Time.deltaTime : 1)
+                    .eulerAngles;
+                if (_onlyY)
+                {
+                    targetRotEuler.x = transform.localRotation.eulerAngles.x;
+                    targetRotEuler.z = transform.localRotation.eulerAngles.z;
+                }
+
+                _rotationPivot.localRotation = Quaternion.Euler(targetRotEuler);
             }
-            
-            _rotationPivot.rotation = Quaternion.Euler(targetRotEuler);
+            else
+            {
+                var targetRotation = Quaternion.LookRotation(_rotationPivot.position - _mainCamera.position);
+                var targetRotEuler = Quaternion.Lerp(transform.rotation, targetRotation,
+                        _rotationSpeed > 0 ? _rotationSpeed * Time.deltaTime : 1)
+                    .eulerAngles;
+                if (_onlyY)
+                {
+                    targetRotEuler.x = transform.rotation.eulerAngles.x;
+                    targetRotEuler.z = transform.rotation.eulerAngles.z;
+                }
+
+                _rotationPivot.rotation = Quaternion.Euler(targetRotEuler);
+            }
         }
     }
 }

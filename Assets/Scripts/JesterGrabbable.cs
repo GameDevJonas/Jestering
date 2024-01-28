@@ -1,14 +1,18 @@
 using System;
+using FMODUnity;
 using UnityEngine;
 
 namespace Jestering.Interaction
 {
     public class JesterGrabbable : Interactable
     {
+        [SerializeField]
+        private StudioEventEmitter _grabAudio;
+        
         private JesterPlatform _platform;
 
         private JesterObject _jesterObject;
-        
+
         private void Awake()
         {
             _platform = FindObjectOfType<JesterPlatform>();
@@ -30,6 +34,8 @@ namespace Jestering.Interaction
             {
                 _jesterObject.SetCollisionEnabled(false);
                 _jesterObject.SetIsShowcasing(true);
+                FMODUnity.RuntimeManager.StudioSystem.setParameterByName("Category", (int)_jesterObject.Category - 1);
+                _grabAudio.Play();
             }
         }
     }

@@ -18,7 +18,9 @@ namespace Jestering.Movement
         private float _movementSpeed;
 
         private Vector2 _movementInputAxis;
-        
+
+        public Vector2 MovementInputAxis => _movementInputAxis;
+
         private void Awake()
         {
             _controller = GetComponentInParent<CharacterController>();
