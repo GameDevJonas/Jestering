@@ -9,7 +9,7 @@ namespace Jestering
     [DefaultExecutionOrder(-50)]
     public class AudioSingleton : MonoBehaviour
     {
-        private AudioSingleton _instance;
+        public static AudioSingleton _instance;
 
         [SerializeField]
         private StudioEventEmitter _musEmitter, _ambxEmitter;

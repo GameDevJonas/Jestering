@@ -53,7 +53,7 @@ MonoBehaviour:
       Data4: 2077425012
     Path: event:/Music/funny_music
   Event: 
-  PlayEvent: 11
+  PlayEvent: 0
   StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 0
@@ -116,7 +116,7 @@ MonoBehaviour:
       Data4: -685834636
     Path: event:/funny_ambience
   Event: 
-  PlayEvent: 11
+  PlayEvent: 0
   StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 0
