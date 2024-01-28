@@ -13,6 +13,9 @@ namespace Jestering.Rating
 {
     public class CourtManager : MonoBehaviour
     {
+        [SerializeField]
+        private Animator _faderAnim;
+        
         [SerializeField] private PlayableDirector _director;
 
         [SerializeField] private TimelineAsset _ratingTimeline;
@@ -40,19 +43,33 @@ namespace Jestering.Rating
         private void Start()
         {
             InputManager.DisablePlayerMap();
-            StartCoroutine(GetNewRequestCoroutine());
+            StartCoroutine(StartGame());
         }
 
+        private IEnumerator StartGame()
+        {
+            StartCoroutine(DoFade());
+            yield return new WaitForSeconds(3);
+            StartCoroutine(GetNewRequestCoroutine());
+        }
+        
+        private IEnumerator DoFade()
+        {
+            _faderAnim.SetTrigger("DoFade");
+            
+            yield return new WaitForSeconds(3);
+
+            _faderAnim.ResetTrigger("DoFade");
+        }
+        
         private IEnumerator GetNewRequestCoroutine()
         {
             _normalPlayerCam.enabled = false;
             _courtCam.enabled = true;
 
-            yield return new WaitForSeconds(1);
-
             _rating.NewRequest(_complexity);
 
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(2);
 
             _exitEmitter.Play();
 
@@ -60,6 +77,9 @@ namespace Jestering.Rating
             _platformTransform.position = _playerTransform.position + _platformTransform.right;
 
             InputManager.EnablePlayerMap();
+
+            StartCoroutine(DoFade());
+            yield return new WaitForSeconds(.3f);
 
             _courtCam.enabled = false;
             _normalPlayerCam.enabled = true;
@@ -83,9 +103,14 @@ namespace Jestering.Rating
         {
             InputManager.DisablePlayerMap();
 
+            StartCoroutine(DoFade());
+            yield return new WaitForSeconds(.2f);
+            
             _normalPlayerCam.enabled = false;
             _courtCam.enabled = true;
 
+            yield return new WaitForSeconds(2.8f);
+            
             _currentlyRatingJesterObject = jesterObject;
 
             _currentlyRatingJesterObject.transform.SetParent(_showcasePoint);
