@@ -130,7 +130,7 @@ MonoBehaviour:
     Obscure: {fileID: 21300000, guid: 005776b3b92bdc545a7a2e2113e11c88, type: 3}
     Koselig: {fileID: 21300000, guid: fa6f55d27acb25b4c86b6d9e64a36458, type: 3}
     Cool: {fileID: 21300000, guid: 930cc88558b67ce49896a0bb0902ce6e, type: 3}
-    Provocative: {fileID: 21300000, guid: 27a13106a2505894bba7acc3f246b0fd, type: 3}
+    Provocative: {fileID: 21300000, guid: 8436308eeffc3a14db578008759cb3ce, type: 3}
     ComedyGold: {fileID: 21300000, guid: a6c963207b04f7f4cb082b7f578e514f, type: 3}
   _overlayImages:
     LoveOverlay: {fileID: 21300000, guid: f399d2d6ac126e44c9fc57b9a99a4331, type: 3}
