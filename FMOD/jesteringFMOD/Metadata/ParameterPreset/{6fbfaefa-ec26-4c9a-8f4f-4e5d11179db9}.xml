@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{6fbfaefa-ec26-4c9a-8f4f-4e5d11179db9}">
+		<property name="name">
+			<value>KingMove</value>
+		</property>
+		<relationship name="folder">
+			<destination>{de7c7c40-7198-4692-a0f1-823fec53ba50}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{c75db6a9-fe82-4b63-806e-b9a03d5970c1}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{c75db6a9-fe82-4b63-806e-b9a03d5970c1}">
+		<property name="isGlobal">
+			<value>true</value>
+		</property>
+		<property name="initialValue">
+			<value>1</value>
+		</property>
+		<property name="isExposedRecursively">
+			<value>false</value>
+		</property>
+	</object>
+</objects>

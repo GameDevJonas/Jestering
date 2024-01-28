@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{a533c6e5-2d3c-44e9-9399-43a6f30376e0}">
+		<property name="assetPath">
+			<value>funny_king_move_stop_02.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2.0010657596371884</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{2118ff30-ac44-4bd7-a1e0-6d73e1eb1deb}</destination>
+		</relationship>
+	</object>
+</objects>
