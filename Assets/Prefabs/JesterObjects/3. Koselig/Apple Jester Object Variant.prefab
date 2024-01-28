@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Apple Jester Object Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1753512391741860606, guid: 9f8694b7124a33940ac55451cc2dcece, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.691
+      objectReference: {fileID: 0}
     - target: {fileID: 3577897099753854171, guid: 9f8694b7124a33940ac55451cc2dcece, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -51,6 +55,18 @@ PrefabInstance:
     - target: {fileID: 3577897099753854171, guid: 9f8694b7124a33940ac55451cc2dcece, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3849177574497414477, guid: 9f8694b7124a33940ac55451cc2dcece, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.40499985
+      objectReference: {fileID: 0}
+    - target: {fileID: 5068560492759957570, guid: 9f8694b7124a33940ac55451cc2dcece, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.905
+      objectReference: {fileID: 0}
+    - target: {fileID: 6046375571552032015, guid: 9f8694b7124a33940ac55451cc2dcece, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.691
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
