@@ -52,7 +52,7 @@ namespace Jestering.Rating
                 if(!_jesterObjectToRate)
                     return;
                 
-                kingRating.RateObject(_jesterObjectToRate);
+                kingRating.RateObject(_jesterObjectToRate, out _);
             }
             
             EditorGUILayout.EndHorizontal();

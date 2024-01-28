@@ -103,7 +103,7 @@ namespace Jestering.Interaction
                     _interactables.Remove(interactable);
             }
 
-            _interactables = _interactables.OrderBy(x => Vector3.Distance(transform.position, x.transform.position)).ToList();
+            _interactables = _interactables.OrderBy(x => Vector3.Distance(transform.position,  x ? x.transform.position : Vector3.positiveInfinity)).ToList();
             if (_interactables.All(x => !x.CanInteract()))
             {
                 SetBestInteractable(null);

@@ -6,11 +6,19 @@ using FMODUnity;
 using Jestering.Input;
 using Jestering.Interaction;
 using UnityEngine;
+using UnityEngine.Playables;
+using UnityEngine.Timeline;
 
 namespace Jestering.Rating
 {
     public class CourtManager : MonoBehaviour
     {
+        [SerializeField]
+        private PlayableDirector _director;
+
+        [SerializeField]
+        private TimelineAsset _ratingTimeline;
+        
         [SerializeField]
         private StudioEventEmitter _enterEmitter, _exitEmitter;
         
@@ -32,7 +40,11 @@ namespace Jestering.Rating
         [SerializeField]
         private JesterPlatform _platform;
 
+        private JesterObject _currentlyRatingJesterObject;
+        
         private int _complexity = 1;
+
+        private bool ShouldShowRating = false;
         
         private void Start()
         {
@@ -69,6 +81,9 @@ namespace Jestering.Rating
                 return;
             
             _enterEmitter.Play();
+
+            _director.playableAsset = _ratingTimeline;
+            _director.Play();
             
             StartCoroutine(StartPresentCoroutine(jesterObject));
         }
@@ -79,22 +94,73 @@ namespace Jestering.Rating
             
             _normalPlayerCam.enabled = false;
             _courtCam.enabled = true;
+
+            _currentlyRatingJesterObject = jesterObject;
             
-            yield return new WaitForSeconds(1);
+            _currentlyRatingJesterObject.transform.SetParent(_showcasePoint);
+            _currentlyRatingJesterObject.transform.position = _showcasePoint.position;
             
-            jesterObject.transform.SetParent(_showcasePoint);
-            jesterObject.transform.position = _showcasePoint.position;
-            
-            var success = _rating.RateObject(jesterObject);
-            if (success)
-                _complexity++;
-            
-            yield return new WaitForSeconds(1);
+            while (!ShouldShowRating)
+            {
+                yield return null;
+            }
+            ShouldShowRating = false;
 
             _rating.ResetRequest();
             _platform.ResetPlatform();
             
             StartCoroutine(GetNewRequestCoroutine());
+        }
+
+        public void KingRateSignal()
+        {
+            _director.Pause();
+            StartCoroutine(RateObject());
+        }
+
+        private IEnumerator RateObject()
+        {
+            var success = _rating.RateObject(_currentlyRatingJesterObject, out int points);
+            if (success)
+                _complexity++;
+
+            var hasFirstLaugh = false;
+            for (int i = 1; i <= 5; i++)
+            {
+                _rating.SetKingFace(_rating.Faces.neutralFace);
+                yield return new WaitForSeconds(.1f);
+
+                var hasEnoughPoints = points / 2 >= i;
+                if (hasEnoughPoints)
+                {
+                    var eventPath = hasFirstLaugh ? "event:/Castle/funny_king_laugh" : "event:/Castle/funny_king_laugh_first";
+                    RuntimeManager.PlayOneShot(eventPath);
+                    if (!hasFirstLaugh)
+                    {
+                        hasFirstLaugh = true;
+                    }
+                    _rating.SetKingFace(_rating.Faces.laughFace);
+                    yield return new WaitForSeconds(1f);
+                }
+
+            }
+
+            if (success)
+            {
+                RuntimeManager.PlayOneShot("event:/Music/funny_fmusic_stinger_win");
+            }
+            else
+            {
+                RuntimeManager.PlayOneShot("event:/Music/funny_fmusic_stinger_lose");
+            }
+            
+            yield return new WaitForSeconds(1);
+            _director.Resume();
+        }
+        
+        public void ShowResultsSignal()
+        {
+            ShouldShowRating = true;
         }
     }
 }

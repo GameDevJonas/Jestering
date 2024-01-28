@@ -133,10 +133,10 @@ MonoBehaviour:
     Provocative: {fileID: 21300000, guid: 27a13106a2505894bba7acc3f246b0fd, type: 3}
     ComedyGold: {fileID: 21300000, guid: 4c7f18bb7abe592448b2132c5c84c2ff, type: 3}
   _overlayImages:
-    LoveOverlay: {fileID: 21300000, guid: fc5a88720f8d7d34a84b5c95a38370cd, type: 3}
+    LoveOverlay: {fileID: 21300000, guid: f399d2d6ac126e44c9fc57b9a99a4331, type: 3}
     LikeOverlay: {fileID: 21300000, guid: cd7cdabefbae56244b22e1a566892d9e, type: 3}
     DislikeOverlay: {fileID: 21300000, guid: ba6585c79ad839d46860724965634a26, type: 3}
-    HateOverlay: {fileID: 21300000, guid: daa5b8b983b2d744398146baf07a6cc9, type: 3}
+    HateOverlay: {fileID: 21300000, guid: dae908da999c02b479ddfc34bee837cd, type: 3}
   _categoryImage: {fileID: 2119960490862724347}
   _overlayImage: {fileID: 4544804803868202136}
 --- !u!1 &6675432168139446946

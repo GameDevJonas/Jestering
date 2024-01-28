@@ -16,10 +16,48 @@ namespace Jestering.Rating
         [SerializeField]
         private KingRequest _currentRequest;
 
+        [SerializeField]
+        private SpriteRenderer _kingfaceSpriteRenderer;
+
+        [SerializeField]
+        private KingFaces _faces;
+        public KingFaces Faces => _faces;
+
+        [Serializable]
+        public class KingFaces
+        {
+            public Sprite neutralFace;
+            public Sprite laughFace;
+            public Sprite loveFace;
+            public Sprite likeFace;
+            public Sprite dislikeFace;
+            public Sprite hateFace;
+        }
+        
         public KingRequest CurrentRequest => _currentRequest;
 
         private int _points;
-        
+
+        public void SetKingFace(Sprite face)
+        {
+            _kingfaceSpriteRenderer.sprite = face;
+
+            // switch (face)
+            // {
+            //     case "neutral":
+            //         _kingfaceSpriteRenderer.sprite = _faces.
+            //         break;
+            //     case "love":
+            //         break;
+            //     case "like":
+            //         break;
+            //     case "dislike":
+            //         break;
+            //     case "hate":
+            //         break;
+            // }
+        }
+
         public void NewRequest(int complexity)
         {
             ResetRequest();
@@ -46,8 +84,10 @@ namespace Jestering.Rating
             _currentRequest = null;
         }
         
-        public bool RateObject(JesterObject jesterObject)
+        public bool RateObject(JesterObject jesterObject, out int points)
         {
+            points = 0;
+            
             if (!jesterObject || _currentRequest.points != 0)
             {
                 _currentRequest.points = 0;
@@ -78,11 +118,15 @@ namespace Jestering.Rating
             var currentRequestPoints = _currentRequest.points;
 
             _points += currentRequestPoints;
-            _requestCollectionUI.SetPointsText(_points);
-
+            points = currentRequestPoints;
             return currentRequestPoints >= 2;
         }
 
+        public void UpdatePointsText()
+        {
+            _requestCollectionUI.SetPointsText(_points);
+        }
+        
         private static void CheckAttachedJesterObject(JesterObject jesterObject, List<JesterObject.ItemCategory> attachedCategories)
         {
             attachedCategories.Add(jesterObject.Category);
