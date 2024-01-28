@@ -65,9 +65,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 03b278eeee22ea4498cbb2e7014c69e9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 930cc88558b67ce49896a0bb0902ce6e, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -129,13 +129,13 @@ MonoBehaviour:
     Girlypop: {fileID: 21300000, guid: 03b278eeee22ea4498cbb2e7014c69e9, type: 3}
     Obscure: {fileID: 21300000, guid: b9869decde90a6240ad882f027d86a69, type: 3}
     Koselig: {fileID: 21300000, guid: 9608eb7f0df108f459d9c6478db8d310, type: 3}
-    Cool: {fileID: 21300000, guid: 0ac8324c26d140f4995bcdbbce592d3a, type: 3}
+    Cool: {fileID: 21300000, guid: 930cc88558b67ce49896a0bb0902ce6e, type: 3}
     Provocative: {fileID: 21300000, guid: 27a13106a2505894bba7acc3f246b0fd, type: 3}
     ComedyGold: {fileID: 21300000, guid: 4c7f18bb7abe592448b2132c5c84c2ff, type: 3}
   _overlayImages:
-    LoveOverlay: {fileID: 21300000, guid: d9a629f5bad26154f94a177885ebb732, type: 3}
-    LikeOverlay: {fileID: 21300000, guid: 4305ac119dfb650479b156fc09b10349, type: 3}
-    DislikeOverlay: {fileID: 21300000, guid: ce1b6508080c0b44d90f99270a0d0667, type: 3}
+    LoveOverlay: {fileID: 21300000, guid: fc5a88720f8d7d34a84b5c95a38370cd, type: 3}
+    LikeOverlay: {fileID: 21300000, guid: cd7cdabefbae56244b22e1a566892d9e, type: 3}
+    DislikeOverlay: {fileID: 21300000, guid: ba6585c79ad839d46860724965634a26, type: 3}
     HateOverlay: {fileID: 21300000, guid: daa5b8b983b2d744398146baf07a6cc9, type: 3}
   _categoryImage: {fileID: 2119960490862724347}
   _overlayImage: {fileID: 4544804803868202136}
@@ -204,9 +204,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d9a629f5bad26154f94a177885ebb732, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cd7cdabefbae56244b22e1a566892d9e, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1

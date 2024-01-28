@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
+using FMODUnity;
 using Jestering.Input;
 using Jestering.Interaction;
 using UnityEngine;
@@ -10,6 +11,9 @@ namespace Jestering.Rating
 {
     public class CourtManager : MonoBehaviour
     {
+        [SerializeField]
+        private StudioEventEmitter _enterEmitter, _exitEmitter;
+        
         [SerializeField]
         private Transform _showcasePoint;
 
@@ -47,6 +51,8 @@ namespace Jestering.Rating
 
             yield return new WaitForSeconds(1);
 
+            _exitEmitter.Play();
+            
             _playerTransform.position = _playerRespawnPoint.position;
             _platformTransform.position = _playerTransform.position + _platformTransform.right;
 
@@ -61,6 +67,8 @@ namespace Jestering.Rating
             var jesterObject = _platform.CurrentJester;
             if(!jesterObject)
                 return;
+            
+            _enterEmitter.Play();
             
             StartCoroutine(StartPresentCoroutine(jesterObject));
         }
