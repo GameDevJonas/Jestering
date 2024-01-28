@@ -52,11 +52,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6685946424863731810, guid: e36df9730468a0f44ac05551c5c881c9, type: 3}
+      propertyPath: _onlyY
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8459493774623211945, guid: e36df9730468a0f44ac05551c5c881c9, type: 3}
       propertyPath: m_Name
       value: BalloonBlue Jester Object Variant
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6685946424863731810, guid: e36df9730468a0f44ac05551c5c881c9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 9076647488612037923, guid: e36df9730468a0f44ac05551c5c881c9, type: 3}

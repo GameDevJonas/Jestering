@@ -56,7 +56,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree2 Jester Object Variant
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6685946424863731810, guid: e36df9730468a0f44ac05551c5c881c9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 9076647488612037923, guid: e36df9730468a0f44ac05551c5c881c9, type: 3}
