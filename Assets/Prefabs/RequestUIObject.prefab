@@ -126,12 +126,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _categoryImages:
-    Girlypop: {fileID: 21300000, guid: 03b278eeee22ea4498cbb2e7014c69e9, type: 3}
-    Obscure: {fileID: 21300000, guid: b9869decde90a6240ad882f027d86a69, type: 3}
-    Koselig: {fileID: 21300000, guid: 9608eb7f0df108f459d9c6478db8d310, type: 3}
+    Girlypop: {fileID: 21300000, guid: 92514f89db021544aa64403879efa83f, type: 3}
+    Obscure: {fileID: 21300000, guid: 005776b3b92bdc545a7a2e2113e11c88, type: 3}
+    Koselig: {fileID: 21300000, guid: fa6f55d27acb25b4c86b6d9e64a36458, type: 3}
     Cool: {fileID: 21300000, guid: 930cc88558b67ce49896a0bb0902ce6e, type: 3}
     Provocative: {fileID: 21300000, guid: 27a13106a2505894bba7acc3f246b0fd, type: 3}
-    ComedyGold: {fileID: 21300000, guid: 4c7f18bb7abe592448b2132c5c84c2ff, type: 3}
+    ComedyGold: {fileID: 21300000, guid: a6c963207b04f7f4cb082b7f578e514f, type: 3}
   _overlayImages:
     LoveOverlay: {fileID: 21300000, guid: f399d2d6ac126e44c9fc57b9a99a4331, type: 3}
     LikeOverlay: {fileID: 21300000, guid: cd7cdabefbae56244b22e1a566892d9e, type: 3}

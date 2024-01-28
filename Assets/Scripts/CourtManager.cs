@@ -156,6 +156,8 @@ namespace Jestering.Rating
                 yield return new WaitForSeconds(1f);
             }
             
+            _rating.SetKingFace(_rating.Faces.neutralFace);
+
             matches.Clear();
             
             if (success)
